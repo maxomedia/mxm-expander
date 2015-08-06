@@ -21,10 +21,10 @@ module.exports = function (env) {
 	if (env !== 'test') {
 
 		// Chunk up the resulting scripts
-		defaults.plugins.push(new webpack.optimize.CommonsChunkPlugin({
+		/*defaults.plugins.push(new webpack.optimize.CommonsChunkPlugin({
 			name: 'shared',
 			filename: '[name].js'
-		}));
+		}));*/
 
 		// Set output dirs
 		defaults.output = defaults.output || {

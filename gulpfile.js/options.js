@@ -37,7 +37,7 @@ var options = {
 		// This can be an array of files for multiple
 		// bundles:
 		// main: ['src/less/main.less', 'src/less/bundle1.less'],
-		main: ['src/less/mxm-expander.less', 'src/less/main.less'],
+		main: ['src/less/expander.less', 'src/less/main.less'],
 
 		// Files to watch for changes and glob used
 		// for incremental less build
@@ -60,7 +60,7 @@ var options = {
 		// Use paths starting with './' (this folder)
 		// or '../' (this folders parent)
 		entry: {
-			app: './src/js/mxm-expander.js'
+			expander: './src/js/entry.js'
 		}
 
 		// For all other options, it is recommended you look

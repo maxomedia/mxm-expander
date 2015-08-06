@@ -40,5 +40,7 @@
     "serve-index": "1.7.0",
     "webpack": "1.9.11"
   },
-  "dependencies": {}
+  "dependencies": {
+    "is-array": "^1.0.1"
+  }
 }
