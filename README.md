@@ -1,2 +1,2 @@
 # mxm-expander
-Expands thing with animations, or don't, I'm just a description.
+Expand things with animations, or don't, I'm just a description.
