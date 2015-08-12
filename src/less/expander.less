@@ -1,16 +1,12 @@
-body {
-	margin: 0;
-	background: rgb(50,50,50);
-	color: rgb(215,215,215);
-	font-family: Arial;
+[data-expander-content] {
+    overflow: hidden;
+    height: 0;
+	transform: translateZ(0);
 }
-
-h1 {
-	position: absolute;
-	top: 50%;
-	width: 100%;
-	margin: 0;
-	font-size: 100px;
-	text-align: center;
-	transform: translate(0, -50%);
+[data-expander-state="open"] {
+    height: auto;
+}
+[data-expander-state="opening"],
+[data-expander-state="closing"] {
+	transition: height 300ms;
 }
