@@ -1,11 +1,18 @@
 {
-  "name": "mxm-gulp",
-  "version": "2.1.1",
+  "name": "mxm-expander",
+  "version": "0.0.1",
   "repository": {
     "type": "git",
-    "url": "https://github.com/maxomedia/mxm-gulp"
+    "url": "https://github.com/maxomedia/mxm-expander"
   },
-  "description": "Project setup with gulp",
+  "keywords": [
+    "expander",
+    "accordion"
+  ],
+  "licence": "MIT",
+  "main": "./dist/js/expander.js",
+  "author": "Philipp Gfeller <philipp.gfeller@maxomedia.ch>",
+  "description": "Expand things with animations, or don't, I'm just a description.",
   "devDependencies": {
     "async": "1.2.1",
     "browser-sync": "2.7.12",
@@ -39,8 +46,5 @@
     "rimraf": "2.4.0",
     "serve-index": "1.7.0",
     "webpack": "1.9.11"
-  },
-  "dependencies": {
-    "is-array": "^1.0.1"
   }
 }

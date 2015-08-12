@@ -1,5 +1,4 @@
 var merge            = require('merge');
-var isArray          = require('is-array');
 var Emitter          = require('events').EventEmitter;
 var transitionend    = require('transitionend-property');
 var isHTMLCollection = require('./modules/isHTMLCollection');
@@ -112,7 +111,6 @@ Expander.prototype.open = function () {
 	console.log(this);
 
 	if (this.state != 'closed') return;
-	if (isArray(this.content)) throw 'Expander: content must be a single element.';
 
 	// Get the height of the contents children
 	var height = getHeightCopy(this.content);
