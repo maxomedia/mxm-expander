@@ -60,7 +60,8 @@ var options = {
 		// Use paths starting with './' (this folder)
 		// or '../' (this folders parent)
 		entry: {
-			expander: './src/js/entry.js'
+			expander: './src/js/entry.js',
+			demo: './src/js/demo.js'
 		}
 
 		// For all other options, it is recommended you look
