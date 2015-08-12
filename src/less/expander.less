@@ -1,0 +1,12 @@
+[data-expander-content] {
+    overflow: hidden;
+    height: 0;
+	transform: translateZ(0);
+}
+[data-expander-state="open"] {
+    height: auto;
+}
+[data-expander-state="opening"],
+[data-expander-state="closing"] {
+	transition: height 300ms;
+}
