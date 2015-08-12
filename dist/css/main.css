@@ -1,0 +1,12 @@
+body {
+  margin: 0;
+}
+[data-expander-content] {
+  background: #c8c8c8;
+}
+body [data-expander-content="demo2"] {
+  -webkit-transition-duration: 4s;
+          transition-duration: 4s;
+}
+
+/*# sourceMappingURL=/css/main.css.map */

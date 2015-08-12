@@ -1,0 +1,16 @@
+[data-expander-content] {
+  overflow: hidden;
+  height: 0;
+  -webkit-transform: translateZ(0);
+          transform: translateZ(0);
+}
+[data-expander-state="open"] {
+  height: auto;
+}
+[data-expander-state="opening"],
+[data-expander-state="closing"] {
+  -webkit-transition: height 300ms;
+          transition: height 300ms;
+}
+
+/*# sourceMappingURL=/css/expander.css.map */
