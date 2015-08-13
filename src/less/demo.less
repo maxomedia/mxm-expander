@@ -1,0 +1,36 @@
+*, *:before, *:after {
+	box-sizing: border-box;
+}
+
+body {
+	margin: 0;
+	padding: 2em;
+	font-family: roboto, Arial;
+}
+
+body [data-expander-content="demo2"] {
+	transition-duration: 4s;
+}
+
+[data-expander-toggler] {
+	cursor: pointer;
+	display: inline-block;
+	padding: 4px 0.5em;
+	border: 2px solid black;
+	color: black;
+	text-decoration: none;
+
+	&:focus {
+		outline: none;
+		border-color: skyblue;
+	}
+
+	&:after {
+		color: white;
+		background: black;
+		font-size: 0.75em;
+		padding: 3px 0.5em;
+		margin-left: 0.5em;
+		content: attr(data-expander-state);
+	}
+}

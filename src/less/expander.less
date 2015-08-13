@@ -1,11 +1,29 @@
+// Default state is closed, so height:0
+// and overflow needs to be hidden
 [data-expander-content] {
     overflow: hidden;
     height: 0;
-	transform: translateZ(0);
+	
+	// Hide not expanded contents properly
+	// so screenreaders cannot reach this
+	// content
+	&[data-expander-state="closed"] > * {
+		display: none;
+	}
 }
+
+// Set height of open expanders to auto
+// so its responsive and less error prone
+// to content added or changing while its
+// open
 [data-expander-state="open"] {
     height: auto;
 }
+
+// Set transition only while animating to
+// prevent an iOS bug where the animation
+// would reset and snap to height: auto
+// instantly
 [data-expander-state="opening"],
 [data-expander-state="closing"] {
 	transition: height 300ms;
