@@ -39,6 +39,22 @@ var expander = new Expander(htmlElement);
 expander.open();
 ```
 
+To set animation duration or easing function, use CSS:
+```CSS
+ #demo-expander {
+ 
+  transition-duration: 1s;
+  transition-timing-function: ease-out;
+  
+  /* DO NOT DO THIS!! */
+  /* Use the long-hand properties because there
+   * is a bug on iOS when the transition property
+   * is set constantly.
+  */
+  transition: height 1.5s ease-in-out; /* BAD */
+ }
+```
+
 ##Usage (CommonJS)
 Use HTML markup as shown above. In your module:
 ```javascript
