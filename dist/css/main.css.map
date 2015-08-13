@@ -1,1 +1,0 @@
-{"version":3,"sources":["main.less"],"names":[],"mappings":"AAAA,KACC,OAAA,EAGD,wBACC,WAAA,QAGD,mCACC,4BAAA,GAAA,oBAAA","file":"main.css","sourcesContent":["body {\r\n\tmargin: 0;\r\n}\r\n\r\n[data-expander-content] {\r\n\tbackground: rgb(200,200,200);\r\n}\r\n\r\nbody [data-expander-content=\"demo2\"] {\r\n\ttransition-duration: 4s;\r\n}"],"sourceRoot":"/source/"}

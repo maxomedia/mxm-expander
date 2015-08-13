@@ -1,0 +1,2 @@
+*,:after,:before{box-sizing:border-box}body{margin:0;padding:2em;font-family:roboto,Arial}body [data-expander-content=demo2]{-webkit-transition-duration:4s;transition-duration:4s}[data-expander-toggler]{cursor:pointer;display:inline-block;padding:4px .5em;border:2px solid #000;color:#000;text-decoration:none}[data-expander-toggler]:focus{outline:0;border-color:#87ceeb}[data-expander-toggler]:after{color:#fff;background:#000;font-size:.75em;padding:3px .5em;margin-left:.5em;content:attr(data-expander-state)}
+/*# sourceMappingURL=/css/demo.css.map */
