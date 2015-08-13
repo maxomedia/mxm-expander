@@ -37,7 +37,7 @@ var options = {
 		// This can be an array of files for multiple
 		// bundles:
 		// main: ['src/less/main.less', 'src/less/bundle1.less'],
-		main: ['src/less/expander.less', 'src/less/main.less'],
+		main: ['src/less/expander.less', 'src/less/demo.less'],
 
 		// Files to watch for changes and glob used
 		// for incremental less build
