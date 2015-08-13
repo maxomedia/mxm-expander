@@ -6,7 +6,7 @@
     if (typeof define === 'function' && define.amd) {
 
         // AMD. Register as an anonymous module.
-        define([], factory);
+        define('Expander', [], factory);
     } else if (typeof exports === 'object') {
 
         // Node. Does not work with strict CommonJS, but
