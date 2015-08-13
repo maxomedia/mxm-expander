@@ -2,12 +2,12 @@ var merge            = require('merge');
 var Emitter          = require('events').EventEmitter;
 var transitionend    = require('transitionend-property');
 var isHTMLCollection = require('./modules/isHTMLCollection');
-var ExpanderGroup    = require('./ExpanderGroup');
 var getHeightCopy    = require('./modules/getHeightCopy');
 
 // Check if browser has transitionend event
 // In IE9, returnal is an empty object
 var hasTransitionEnd = Object.prototype.toString.call(transitionend) == '[object String]';
+var expanders = [];
 
 // The exportable object
 function Expander (element) {
@@ -17,6 +17,7 @@ function Expander (element) {
 	this.hasGroup;
 	this.id;
 	this.state;
+	this.groupID;
 
 	if (element) { return this.initialize(element); }
 }
@@ -80,13 +81,12 @@ Expander.prototype._emitStatus = function () {
 /**
  * Reset inline style height and the state. Remove
  * transitionend event listener
+ * Internal function
  */
 Expander.prototype._openedEventHandler = function () {
-
-	//console.log('open', arguments);
-	//if (this._boundEvent) {
+	if (this._boundEvent) {
 		this.content.removeEventListener(transitionend, this._boundEvent);
-	//}
+	}
 	this.content.style.height = '';
 	this._setState('open');
 }
@@ -94,22 +94,23 @@ Expander.prototype._openedEventHandler = function () {
 /**
  * Set the correct state. Remove transitionend event
  * listener
+ * Internal function
  */
 Expander.prototype._closedEventHandler = function (e) {
-	//if (this._boundEvent) {
+	if (this._boundEvent) {
 		this.content.removeEventListener(transitionend, this._boundEvent);
-	//}
+	}
+	this.content.style.height = '';
 	this._setState('closed');
 }
 
 /**
  * Open the expander
- * Pulic function
+ * Public function
  */
 Expander.prototype.open = function () {
 
-	console.log(this);
-
+	// Let animation finish before animating again
 	if (this.state != 'closed') return;
 
 	// Get the height of the contents children
@@ -117,8 +118,13 @@ Expander.prototype.open = function () {
 
 	// Close the open content if this is part of
 	// a group
-	if (this.group.openContent) {
-		this.group.openContent.apply(this.group.openContent);
+	if (this.groupID) {
+		for (var i = 0; i < expanders.length; i++) {
+			var expander = expanders[i];
+			if (expander.groupID || expander != this && expander.groupID == this.groupID && "open" == expander.state) {
+				expander.close();
+			}
+		}
 	}
 
 	// Set the state
@@ -145,12 +151,13 @@ Expander.prototype.open = function () {
  */
 Expander.prototype.close = function () {
 
+	// Let animation finish before animating again
 	if (this.state != 'open') return;
 
 	// Get the height directly from content
 	this.content.style.height = this.content.offsetHeight + 'px';
 
-	// Trigger page rendering
+	// Trigger page rendering to prevent display bugs
 	this.content.offsetHeight;
 
 	// Set state
@@ -197,11 +204,13 @@ Expander.prototype.toggle = function (e) {
 /**
  * Initialize an expander instance based on 
  * a content element
+ * Public function
  * @param  {DOMElement} element The content of the expander
  * @return {Object}         The expander instance
  */
 Expander.prototype.initialize = function (element) {
 
+	// Get all info about the element
 	var states = ['open', 'closed'];
 	var id = element.getAttribute('data-expander-content');
 	var state = element.getAttribute('data-expander-state');
@@ -209,25 +218,28 @@ Expander.prototype.initialize = function (element) {
 
 	if (!id) throw 'Expander content with invalid data-expander-content attribute';
 
+	// Set properties
 	this.content = element;
 	this.id = id;
-	//this.state = (states.indexOf(state) > 0) ? state : 'closed';
-	this.group = (groupID) ? new ExpanderGroup() : false;
+	this.groupID = (groupID) ? groupID : false;
 	this.toggler = document.querySelectorAll('[data-expander-toggler~="' + id + '"]');
-	
-	if (this.group) {
-		this.group.id = groupID;
-	}
-	console.log('states', states.indexOf(state) >= 0)
+
+	// Set correct state and take already present state into account
 	if (states.indexOf(state) >= 0) {
 		this._setState(state, false);
 	} else {
 		this._setState('closed', false);
 	}
 
+	// Add event listeners on the togglers
 	for (var i = 0; i < this.toggler.length; i++) {
 		this.toggler[i].addEventListener('click', this.toggle.bind(this));
 	}
+
+	// Add instance to collection. This is required to handle grouping
+	expanders.push(this);
+
+	// Return expander instance
 	return this;
 }
 
