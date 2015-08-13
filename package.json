@@ -1,6 +1,10 @@
 {
   "name": "mxm-expander",
+<<<<<<< HEAD
   "version": "0.0.3",
+=======
+  "version": "0.0.5",
+>>>>>>> release/0.0.5
   "repository": {
     "type": "git",
     "url": "https://github.com/maxomedia/mxm-expander"
