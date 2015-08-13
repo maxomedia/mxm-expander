@@ -58,6 +58,7 @@ define('someModule', ['Expander'], function (Expander) {
   var expander = new Expander(htmlElement);
   
   expander.open();
+});
 ```
 
 ##Properties
