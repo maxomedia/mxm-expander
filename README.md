@@ -7,7 +7,7 @@ Expand HTML elements with animations, or don't, I'm just a description.
  - [`document.querySelector()`](http://caniuse.com/#feat=queryselector) needs to be supported (IE9+)
 
 ##Disclaimer
-Expanding things without `position: absolute/fixed;` is a massive performance issue, it causes a page reflow for every frame of the animation. Don't do it. I warned you.
+Expanding things without `position: absolute/fixed;` is a massive performance issue, it causes a page reflow for every frame of the animation. Don't do it. I warned you. Something to read on this topic: http://www.html5rocks.com/en/tutorials/speed/high-performance-animations/.
 
 ##Usage (globals)
 Reference the CSS and the JS in your HTML (it is recommended that you bundle this files with your own assets).
