@@ -1,2 +1,2 @@
-[data-expander-content]{overflow:hidden;height:0}[data-expander-content][data-expander-state=closed]>*{display:none}[data-expander-state=open]{height:auto}[data-expander-state=opening],[data-expander-state=closing]{-webkit-transition:height 300ms;transition:height 300ms}
+[data-expander-content]{overflow:hidden;height:0}[data-expander-content][data-expander-state=closed]>*{display:none}[data-expander-state=open]{height:auto}[data-expander-state=opening],[data-expander-state=closing]{-webkit-transition-property:height;transition-property:height;-webkit-transition-duration:300ms;transition-duration:300ms}
 /*# sourceMappingURL=/css/expander.css.map */
