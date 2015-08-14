@@ -133,7 +133,11 @@ Expander.prototype.open = function () {
 	// Set the height
 	this.content.style.height = height + 'px';
 
-	if (hasTransitionEnd) {
+	// See if there is a transition duration, if not,
+	// directly call open event handler
+	var transitionDuration = parseFloat(getComputedStyle(this.content)['transitionDuration']);
+
+	if (hasTransitionEnd && transitionDuration > 0) {
 
 		// Register transitionend handler
 		this._boundEvent = this._openedEventHandler.bind(this);
@@ -154,6 +158,7 @@ Expander.prototype.close = function () {
 	// Let animation finish before animating again
 	if (this.state != 'open') return;
 
+
 	// Get the height directly from content
 	this.content.style.height = this.content.offsetHeight + 'px';
 
@@ -166,7 +171,11 @@ Expander.prototype.close = function () {
 	// Set height
 	this.content.style.height = 0;
 
-	if (hasTransitionEnd) {
+	// See if there is a transition duration, if not,
+	// directly call close event handler
+	var transitionDuration = parseFloat(getComputedStyle(this.content)['transitionDuration']);
+
+	if (hasTransitionEnd && transitionDuration > 0) {
 
 		// Register transitionend event handler
 		this._boundEvent = this._closedEventHandler.bind(this);
