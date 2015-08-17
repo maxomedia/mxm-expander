@@ -1,15 +1,15 @@
 # mxm-expander
 Expand HTML elements with animations, or don't, I'm just a description.
 
-##Compatibility/Dependencies
+## Compatibility/Dependencies
  - no `jQuery` needed
  - implements [`EventEmitter`](https://nodejs.org/api/events.html) from node
  - [`document.querySelector()`](http://caniuse.com/#feat=queryselector) needs to be supported (IE9+)
 
-##Disclaimer
+## Attention
 Expanding things without `position: absolute/fixed;` is a massive performance issue, it causes a page reflow for every frame of the animation. Don't do it. I warned you. Something to read on this topic: http://www.html5rocks.com/en/tutorials/speed/high-performance-animations/.
 
-##Usage (globals)
+## Usage (globals)
 Reference the CSS and the JS in your HTML (it is recommended that you bundle this files with your own assets).
 ```html
 <html>
@@ -55,7 +55,7 @@ To set animation duration or easing function, use CSS:
  }
 ```
 
-##Usage (CommonJS)
+## Usage (CommonJS)
 Use HTML markup as shown above. In your module:
 ```javascript
 var Expander = require('mxm-expander');
@@ -66,7 +66,7 @@ expander.initialize(htmlElement);
 expander.open();
 ```
 
-##Usage (AMD)
+## Usage (AMD)
 Use HTML markup as shown above. In your module:
 ```javascript
 define('someModule', ['Expander'], function (Expander) {
@@ -77,7 +77,7 @@ define('someModule', ['Expander'], function (Expander) {
 });
 ```
 
-##Properties
+## Properties
 This is the expander object you get when you initialize an Expander:
 ```javascript
 {
@@ -92,7 +92,7 @@ This is the expander object you get when you initialize an Expander:
 ```
 There are some internal properties that are not displayed here.
 
-##Functions
+## Functions
 | Name | Description | Return value |
 |------|-------------|--------------|
 | `expander.initialize(HTMLElement)` or `new Expander(HTMLElement)` | Initialize a new expander based on a HTMLElement | Expander instance |
@@ -104,7 +104,7 @@ There are some internal properties that are not displayed here.
 | `expander.removeListener(handler)` | Remove an event listener | |
 | `Expander.autoInitialize()` | Special function on the object constructor to automatically initialize every instance of [data-expander-content] found in the document | Array of initialized expanders |
 
-##Events
+## Events
 | Name | Description |
 |------|-------------|
 | opening | Triggers when the expanders opening animation starts |
