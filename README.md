@@ -95,7 +95,7 @@ There are some internal properties that are not displayed here.
 ##Functions
 | Name | Description | Return value |
 |------|-------------|--------------|
-| `expander.initialize(HTMLElement)` | Initialize a new expander based on a HTMLElement | Expander instance |
+| `expander.initialize(HTMLElement)` or `new Expander(HTMLElement)` | Initialize a new expander based on a HTMLElement | Expander instance |
 | `expander.open()` | Opens the expander | |
 | `expander.close()` | Closes the expander | |
 | `expander.toggle()` | Toggles the expander | |
