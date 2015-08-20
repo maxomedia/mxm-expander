@@ -89,13 +89,14 @@ var options = {
 		// If you have static html, css and js files and no server,
 		// you can use browserSync as your static file server:
 		server: { baseDir: destination },
+		startPath: '/demo.html',
 
 		// If you already have a server running,
 		// you can use browserSync as a proxy, like:
 		// proxy: 'localhost:60000'
 		
 		// Wether to open new tab on start or not
-		open: false,
+		open: true,
 		logFileChanges: false
 	},
 
