@@ -1,6 +1,6 @@
 {
   "name": "mxm-expander",
-  "version": "0.0.10",
+  "version": "0.0.11",
   "repository": {
     "type": "git",
     "url": "https://github.com/maxomedia/mxm-expander"
@@ -10,7 +10,7 @@
     "accordion"
   ],
   "licence": "MIT",
-  "main": "./Expander.js",
+  "main": "./dist/js/expander.js",
   "author": "Philipp Gfeller <philipp.gfeller@maxomedia.ch>",
   "description": "Expand things with animations, or don't, I'm just a description.",
   "devDependencies": {
