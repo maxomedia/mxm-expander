@@ -1,7 +1,6 @@
 var merge            = require('merge');
 var Emitter          = require('events').EventEmitter;
 var transitionend    = require('transitionend-property');
-var isHTMLCollection = require('./modules/isHTMLCollection');
 var getHeightCopy    = require('./modules/getHeightCopy');
 
 // Check if browser has transitionend event
