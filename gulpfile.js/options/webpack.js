@@ -30,7 +30,9 @@ module.exports = function (env) {
 		defaults.output = defaults.output || {
 			path: fastOptions.dest + '/js/',
 			filename: '[name].js',
-			publicPath: fastOptions.webroot
+			publicPath: fastOptions.webroot,
+			library: 'Expander',
+			libraryTarget: 'umd'
 		}
 	}
 
