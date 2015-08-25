@@ -259,10 +259,11 @@ Expander.prototype.initialize = function (element) {
 Expander.autoInitialize = function () {
 
 	var expanders = document.querySelectorAll('[data-expander-content]');
-	var instances = [];
+	var instances = {};
 
 	for (var i = 0; i < expanders.length; i++) {
-		instances.push(new Expander(expanders[i]));
+		var expander = new Expander(expanders[i]);
+		instances[expander.id] = expander;
 	}
 
 	return instances;
