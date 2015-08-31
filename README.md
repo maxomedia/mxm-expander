@@ -102,7 +102,7 @@ There are some internal properties that are not displayed here.
 | `expander.on(event, handler)` | Registers an event listener (see below for a list of possible events | |
 | `expander.once(event, handler)` | Registers an one time listener | |
 | `expander.removeListener(handler)` | Remove an event listener | |
-| `Expander.autoInitialize()` | Special function on the object constructor to automatically initialize every instance of [data-expander-content] found in the document | Array of initialized expanders |
+| `Expander.autoInitialize()` | Special function on the object constructor to automatically initialize every instance of [data-expander-content] found in the document | Associative array with every initialized expander `{'expanderID': {...}, 'otherExpanderID': {...}}` |
 
 ## Events
 | Name | Description |

@@ -16,6 +16,7 @@ function getHeightCopy(parent) {
 	copy.style.visibility = 'hidden';
 	copy.style.position = 'absolute';
 	copy.style.height = 'auto';
+	copy.style.width = parent.offsetWidth;
 
 	// Reset data-expander-state, so contents are
 	// not hidden by the expander state closed
