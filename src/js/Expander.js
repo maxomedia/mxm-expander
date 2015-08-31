@@ -120,7 +120,7 @@ Expander.prototype.open = function () {
 	if (this.groupID) {
 		for (var i = 0; i < expanders.length; i++) {
 			var expander = expanders[i];
-			if (expander.groupID || expander != this && expander.groupID == this.groupID && "open" == expander.state) {
+			if (expander.groupID && expander != this && expander.groupID == this.groupID && "open" == expander.state) {
 				expander.close();
 			}
 		}
