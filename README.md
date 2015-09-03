@@ -36,6 +36,7 @@ The markup for your expander:
 <div id="demo-expander" data-expander-content="demo1">
   <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Non, ex nulla! Esse architecto officia necessitatibus nihil voluptas harum magnam sint, sunt error! Cupiditate, et praesentium saepe ex culpa dolorum repudiandae.</p>
 </div>
+```
 
 ## Styles
 To set animation duration or easing function, use CSS:
@@ -55,7 +56,6 @@ To set animation duration or easing function, use CSS:
 ```
 
 ## Usage (globals)
-```
 Initialize the expander with javascript:
 ```javascript
 var htmlElement = document.getElementById('demo-expander');
