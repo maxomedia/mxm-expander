@@ -1,0 +1,25 @@
+extends ../shared/layout.jade
+
+block body
+	h1 mxm-expander, Aria version
+	
+	h2 Simple expander
+	// Demo 1
+	p
+		button(role="tab" aria-controls="demo1") Demo 1
+
+	div(role="tabpanel" id="demo1")
+		+lorem
+
+
+	h2 Expander group
+
+	p
+		button(role="tab" aria-controls="demo2") Demo 2
+		button(role="tab" aria-controls="demo3") Demo 3
+
+	div(id="demo2" role="tabpanel" data-expander-group="demo-group")
+		+lorem
+
+	div(id="demo3" role="tabpanel" data-expander-group="demo-group")
+		+lorem
