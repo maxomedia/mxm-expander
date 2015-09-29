@@ -1,13 +1,29 @@
 
 /**
- * Get the height of the 
- * specified element by shortly
- * displaying it, read height,
- * and hide it again.
- * @param  {DOMElement} parent A single DOM element
- * @return {Number}        The height in pixels
+ * Decide which strategy to use depending
+ * on the number of children.
+ * @param  {Object} parent HTML Element
+ * @return {Number}        Height in pixel
  */
-function getHeightCopy (parent) {
+function getHeight (parent) {
+	if (parent.children.length > 1) {
+		return getHeightMultipleChildren(parent);
+	} else if (parent.children.length == 1) {
+		return getHeightSingleChild(parent);
+	} else {
+		return 0;
+	}
+}
+
+
+/**
+ * Get height if there are multiple children.
+ * In this case, the height needs to be taken
+ * from the parent.
+ * @param  {Object} parent HTML Element
+ * @return {Number}        Height in pixel
+ */
+function getHeightMultipleChildren (parent) {
 
 	// Set height to auto, get value
 	// and reset to previous value
@@ -21,4 +37,16 @@ function getHeightCopy (parent) {
 	return height;
 }
 
-module.exports = getHeightCopy;
+/**
+ * Get height if there is only one child
+ * @param  {Object} parent HTML Element
+ * @return {Number}        Height in pixel
+ */
+function getHeightSingleChild (parent) {
+
+	// Return the height of just the single
+	// element
+	return parent.children[0].offsetHeight;
+}
+
+module.exports = getHeight;
