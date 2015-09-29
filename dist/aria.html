@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="css/demo.css" rel="stylesheet">
+    <link href="css/expander.css" rel="stylesheet">
+  </head>
+  <body>
+    <h1>mxm-expander, Aria version</h1>
+    <h2>Simple expander</h2>
+    <!-- Demo 1-->
+    <p>
+      <button role="tab" aria-controls="demo1">Demo 1</button>
+    </p>
+    <div role="tabpanel" id="demo1">
+      <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quis, ad, commodi? Quae fuga, iste recusandae incidunt dolore possimus enim odit, eaque ullam perspiciatis, ducimus esse vitae sunt quos omnis voluptatem.</p>
+    </div>
+    <h2>Expander group</h2>
+    <p>
+      <button role="tab" aria-controls="demo2">Demo 2</button>
+      <button role="tab" aria-controls="demo3">Demo 3</button>
+    </p>
+    <div id="demo2" role="tabpanel" data-expander-group="demo-group">
+      <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quis, ad, commodi? Quae fuga, iste recusandae incidunt dolore possimus enim odit, eaque ullam perspiciatis, ducimus esse vitae sunt quos omnis voluptatem.</p>
+    </div>
+    <div id="demo3" role="tabpanel" data-expander-group="demo-group">
+      <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quis, ad, commodi? Quae fuga, iste recusandae incidunt dolore possimus enim odit, eaque ullam perspiciatis, ducimus esse vitae sunt quos omnis voluptatem.</p>
+    </div>
+    <script src="js/expander.js"></script>
+    <script src="js/demo.js"></script>
+  </body>
+</html>

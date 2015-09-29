@@ -24,6 +24,19 @@ function Expander (element) {
 Expander.prototype = merge(Expander.prototype, Emitter.prototype);
 
 /**
+ * Helper function to loop over a set of elements
+ * @param  {Collection}   elements Collection of elements
+ * @param  {Function} callback Callback function for each element
+ */
+function each (elements, callback) {
+	for (var i = 0; i < elements.length; i++) {
+		callback.apply(elements[i], [elements[i]]);
+	}
+
+	return elements;
+}
+
+/**
  * Set the state, update all elements and emit a status event.
  * Internal function.
  * @param {String} state The new state
@@ -39,9 +52,9 @@ Expander.prototype._setState = function (state, emit) {
 
 	// Set state reference for CSS rules
 	this.content.setAttribute('data-expander-state', state);
-	for (var i = 0; i < this.toggler.length; i++) {
-		this.toggler[i].setAttribute('data-expander-state', state);
-	}
+	each(this.toggler, function (toggler) {
+		toggler.setAttribute('data-expander-state', state);
+	});
 
 	// Handle accessibility aria attribute
 	if (state == 'open') {
@@ -118,12 +131,11 @@ Expander.prototype.open = function () {
 	// Close the open content if this is part of
 	// a group
 	if (this.groupID) {
-		for (var i = 0; i < expanders.length; i++) {
-			var expander = expanders[i];
+		each(expanders, function (expander) {
 			if (expander.groupID && expander != this && expander.groupID == this.groupID && "open" == expander.state) {
 				expander.close();
 			}
-		}
+		});
 	}
 
 	// Set the state
@@ -246,6 +258,17 @@ Expander.prototype.initialize = function (element) {
 
 	// Add instance to collection. This is required to handle grouping
 	expanders.push(this);
+
+	// Bind instance to data-expander so other scripts can grab it from
+	// the element itself
+	if (!this.content.data) { this.content.data = {}; }
+	this.content.data.expander = this;
+
+	// Save the whole expander object on the content element to expose
+	// it for external libraries or custom use
+	this.content.data = {
+		expander: this
+	}
 
 	// Return expander instance
 	return this;
