@@ -259,6 +259,11 @@ Expander.prototype.initialize = function (element) {
 	// Add instance to collection. This is required to handle grouping
 	expanders.push(this);
 
+	// Bind instance to data-expander so other scripts can grab it from
+	// the element itself
+	if (!this.content.data) { this.content.data = {}; }
+	this.content.data.expander = this;
+
 	// Save the whole expander object on the content element to expose
 	// it for external libraries or custom use
 	this.content.data = {
