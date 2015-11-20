@@ -135,7 +135,7 @@ Expander.prototype.open = function () {
 			if (expander.groupID && expander != this && expander.groupID == this.groupID && "open" == expander.state) {
 				expander.close();
 			}
-		});
+		}.bind(this));
 	}
 
 	// Set the state
